@@ -147,4 +147,6 @@ export { default as version } from './version';
 
 export { default as HcfTest } from './hcf-test';
 
-export { default as HcfFundPageHeader } from './hcf-fund-page-header';
+export { default as HcfPageHeader } from './hcf-page-header';
+
+export { default as HcfInfoCard } from './hcf-info-card';

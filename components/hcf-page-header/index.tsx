@@ -1,15 +1,14 @@
 import * as React from 'react';
 import Icon from '../icon';
 
-export interface HcfFundPageHeaderProps {
+export interface HcfPageHeaderProps {
   headerText?: string;
   onClickBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export default class HcfFundPageHeader extends React.Component<HcfFundPageHeaderProps> {
+export default class HcfPageHeader extends React.Component<HcfPageHeaderProps> {
   render() {
     const { headerText, onClickBack } = this.props;
-    console.log(onClickBack);
     return (
       <div>
         <header className="fund-header">

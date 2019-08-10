@@ -14,9 +14,9 @@ title:
 Used for the display of the page header.
 
 ```jsx
-import { HcfFundPageHeader } from 'antd';
+import { HcfPageHeader } from 'antd';
 
-const headerText = 'HcfFundPageHeader';
+const headerText = 'HcfPageHeader';
 
 function onClickBack() {
   console.log('onClickBack');
@@ -24,7 +24,7 @@ function onClickBack() {
 
 ReactDOM.render(
   <div>
-    <HcfFundPageHeader headerText={headerText} onClickBack={onClickBack} />
+    <HcfPageHeader headerText={headerText} onClickBack={onClickBack} />
   </div>,
   mountNode,
 );

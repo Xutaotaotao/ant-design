@@ -1,7 +1,8 @@
 ---
+order: 11
 category: HCF
 type: 基础组件
-title: HcfFundPageHeader
+title: HcfPageHeader
 subtitle: 页面头部
 ---
 

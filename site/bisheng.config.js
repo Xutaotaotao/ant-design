@@ -46,6 +46,7 @@ module.exports = {
       Other: 6,
       Components: 100,
       组件: 100,
+      HCF: 101,
     },
     typeOrder: {
       General: 0,
