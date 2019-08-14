@@ -5,7 +5,6 @@ import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
-import GitHubButton from 'react-github-button';
 import { Button } from 'antd';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
@@ -63,7 +62,7 @@ class Banner extends React.PureComponent {
             </div>
           )}
           <QueueAnim className="text-wrapper" key="text" type="bottom">
-            <h1 key="h1">Ant Design</h1>
+            <h1 key="h1">Hcf Front</h1>
             <p key="p">
               <FormattedMessage id="app.home.introduce" />
             </p>
@@ -73,24 +72,6 @@ class Banner extends React.PureComponent {
                   <FormattedMessage id="app.home.getting-started" />
                 </Button>
               </Link>
-              <Link
-                to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}
-                style={{ marginLeft: 16 }}
-              >
-                <Button className="banner-btn language">
-                  <FormattedMessage id="app.home.design-language" />
-                </Button>
-              </Link>
-              {!isMobile && (
-                <GitHubButton
-                  style={{ marginLeft: 16 }}
-                  key="github-button"
-                  size="large"
-                  type="stargazers"
-                  namespace="ant-design"
-                  repo="ant-design"
-                />
-              )}
             </div>
           </QueueAnim>
           {!isMobile && (

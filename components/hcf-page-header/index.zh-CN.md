@@ -1,6 +1,6 @@
 ---
 order: 11
-category: HCF
+category: HCF组件
 type: 基础组件
 title: HcfPageHeader
 subtitle: 页面头部

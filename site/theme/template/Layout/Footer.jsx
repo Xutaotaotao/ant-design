@@ -104,7 +104,7 @@ class Footer extends React.Component {
     const isZhCN = intl.locale === 'zh-CN';
     return (
       <footer id="footer">
-        <div className="footer-wrap">
+        {/* <div className="footer-wrap">
           <Row gutter={16}>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
@@ -395,11 +395,18 @@ class Footer extends React.Component {
               </div>
             </Col>
           </Row>
-        </div>
+        </div> */}
         <div className="bottom-bar">
           Made with <span className="heart">❤</span> by
-          <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
+          {/* <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
             <FormattedMessage id="app.footer.company" />
+          </a> */}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://101.132.162.31:9081/#/dashboard"
+          >
+            融智汇
           </a>
         </div>
       </footer>

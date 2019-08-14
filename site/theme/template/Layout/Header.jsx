@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
+import { Menu, Row, Col, Icon, Popover, Input, Button } from 'antd';
 import Santa from './Santa';
 import * as utils from '../utils';
-import { version as antdVersion } from '../../../../package.json';
-
-const { Option } = Select;
 
 let docsearch;
 if (typeof window !== 'undefined') {
@@ -109,12 +106,12 @@ export default class Header extends React.Component {
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
     const { location, themeConfig } = this.props;
-    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
-    const versionOptions = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>
-        {version}
-      </Option>
-    ));
+    // const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+    // const versionOptions = Object.keys(docVersions).map(version => (
+    //   <Option value={docVersions[version]} key={version}>
+    //     {version}
+    //   </Option>
+    // ));
     const module = location.pathname
       .replace(/(^\/|\/$)/g, '')
       .split('/')
@@ -143,17 +140,6 @@ export default class Header extends React.Component {
       >
         <FormattedMessage id="app.header.lang" />
       </Button>,
-      <Select
-        key="version"
-        className="version"
-        size="small"
-        dropdownMatchSelectWidth={false}
-        defaultValue={antdVersion}
-        onChange={this.handleVersionChange}
-        getPopupContainer={trigger => trigger.parentNode}
-      >
-        {versionOptions}
-      </Select>,
       <Menu
         className="menu-site"
         mode={menuMode}
@@ -166,74 +152,20 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="docs/spec">
+        {/* <Menu.Item key="docs/spec">
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="docs/react">
           <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.SubMenu
-          key="ecosystem"
-          className="hide-in-home-page"
-          title={
-            <Badge dot>
-              <FormattedMessage id="app.header.menu.ecosystem" />
-            </Badge>
-          }
-        >
-          <Menu.Item key="pro">
-            <a
-              href="http://pro.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Badge dot>
-                <FormattedMessage id="app.header.menu.pro.v4" />
-              </Badge>
-            </a>
-          </Menu.Item>
-          <Menu.Item key="ng">
-            <a
-              href="http://ng.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Angular
-            </a>
-          </Menu.Item>
-          <Menu.Item key="vue">
-            <a
-              href="http://vue.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Vue
-            </a>
-          </Menu.Item>
-          {isZhCN ? (
-            <Menu.Item key="course" className="hide-in-home-page">
-              <a
-                href="https://www.yuque.com/ant-design/course"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ant Design 实战教程
-              </a>
-            </Menu.Item>
-          ) : null}
-        </Menu.SubMenu>
       </Menu>,
     ];
 
-    const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
+    const searchPlaceholder = locale === 'zh-CN' ? '搜索' : 'Search';
     return (
       <header id="header" className={headerClassName}>
         {isMobile && (
@@ -254,12 +186,9 @@ export default class Header extends React.Component {
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img
                 alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                src="data:image/png;base64,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"
               />
-              <img
-                alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
-              />
+              <span style={{ color: '#314659', fontSize: '24px' }}>Hcf Front</span>
               <Santa />
             </Link>
           </Col>

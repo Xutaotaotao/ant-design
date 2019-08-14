@@ -110,7 +110,7 @@ export default class ComponentDoc extends React.Component {
       'show-riddle-button': showRiddleButton,
     });
     return (
-      <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
+      <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Hcf Front`}>
         <article className={articleClassName}>
           <Affix className="toc-affix" offsetTop={16}>
             <ul id="demo-toc" className="toc">
